@@ -112,4 +112,10 @@ if __name__ == "__main__":
 #     print(myDat)
 #     print(calcShannonEnt(myDat))
 # =============================================================================
-    
+    fr = open('lenses.txt')
+    lenses = [inst.strip().split('\t') for inst in fr.readlines()]
+    lensesLabels = ['age','prescript','astigmatic','tearRate']
+    lensesTree = createTree(lenses,lensesLabels)
+    print(lensesTree)
+    from treePlotter import createPlot
+    createPlot(lensesTree)
